@@ -39,6 +39,20 @@ public class ComputerTest {
     @Test
     public void ComputerOsTest() {
         mockedComputer.setOs("Windows");
-        verify(mockedComputer).setOs("Windows");
+        mockedComputer.setOs("Linux");
+
+        verify(mockedComputer).setOs("Linux");
+    }
+
+    @Test
+    public void verifyNumberOfInvocations() {
+        mockedComputer.setOs("Windows");
+        mockedComputer.setOs("Linux");
+
+        verify(mockedComputer, times(1)).setOs("Windows");
+        verify(mockedComputer, times(1)).setOs("Linux");
+
+        verify(mockedComputer, atLeast(2)).setOs(anyString());
+        verify(mockedComputer, atMost(2)).setOs(anyString());
     }
 }
