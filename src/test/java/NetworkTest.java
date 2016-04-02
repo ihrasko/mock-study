@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
@@ -56,9 +57,24 @@ public class NetworkTest {
     public void removeComputerNegativeTest() {
         try {
             mockedNetwork.removeComputer(null);
-            fail("Test should fail due to Nullpointer exception");
+            fail("Test should fail due to NullPointerException");
         } catch (Exception e) {
             assertTrue((e instanceof NullPointerException));
+        }
+    }
+
+    @Test
+    public void spyingOnRealObjects() {
+        // here every method is default stubbed
+        assertEquals(null, mockedNetwork.removeComputer(100));
+
+        // here real methods are called
+        try {
+            Network spy = spy(new Network());
+            spy.removeComputer(100);
+            fail("Test should fail due to IndexOutOfBoudException");
+        } catch (Exception e) {
+            assertTrue((e instanceof IndexOutOfBoundsException));
         }
     }
 }

@@ -15,11 +15,15 @@ public class Network {
         }
     }
 
-   public boolean addComputer(Computer computer) {
+    public boolean addComputer(Computer computer) {
         return computers.add(computer);
-   }
+    }
 
     public boolean removeComputer(Computer computer) {
         return computers.remove(computer);
+    }
+
+    public Computer removeComputer(int index) {
+        return computers.remove(index);
     }
 }
