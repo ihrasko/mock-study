@@ -1,6 +1,9 @@
+import com.sun.org.glassfish.gmbal.ManagedObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -11,14 +14,14 @@ import static org.mockito.Mockito.*;
  */
 public class NetworkTest {
 
+    @Mock
     private Network mockedNetwork;
+    @Mock
     private Computer mockedComputer;
 
     @Before
     public void initTest() {
-        mockedNetwork = mock(Network.class);
-        mockedComputer = mock(Computer.class);
-
+        MockitoAnnotations.initMocks(this);
 
         when(mockedNetwork.addComputer(mockedComputer)).thenReturn(true);
         when(mockedNetwork.addComputer(null)).thenReturn(false);

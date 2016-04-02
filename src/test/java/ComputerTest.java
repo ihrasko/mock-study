@@ -1,5 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.*;
 /**
@@ -8,11 +10,12 @@ import static org.mockito.Mockito.*;
  */
 public class ComputerTest {
 
+    @Mock
     private Computer mockedComputer;
 
     @Before
-    public void initTest() {
-        mockedComputer = mock(Computer.class);
+    public void initMOcks() {
+        MockitoAnnotations.initMocks(this);
     }
 
     @Test
