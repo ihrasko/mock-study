@@ -1,8 +1,5 @@
 language: java
 
-java:
-    - 1.8
-
 build:
     ci:
         - mvn clean install
