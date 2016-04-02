@@ -3,14 +3,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
+import org.mockito.exceptions.verification.SmartNullPointerException;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 /**
  * Network test class
@@ -23,7 +23,8 @@ public class NetworkTest {
 
     @Before
     public void initTest() {
-        MockitoAnnotations.initMocks(this);
+        //MockitoAnnotations.initMocks(this);
+        mockedNetwork = mock(Network.class, Mockito.RETURNS_SMART_NULLS);
 
         when(mockedNetwork.addComputer(any(Computer.class))).thenReturn(true);
         when(mockedNetwork.addComputer(null)).thenReturn(false, true);
@@ -75,6 +76,17 @@ public class NetworkTest {
             fail("Test should fail due to IndexOutOfBoudException");
         } catch (Exception e) {
             assertTrue((e instanceof IndexOutOfBoundsException));
+        }
+    }
+
+    @Test
+    public void smartNullTest() {
+        Computer c = mockedNetwork.removeComputer(100);
+
+        try {
+            c.getName();
+        } catch (Exception e) {
+            assertTrue((e instanceof SmartNullPointerException));
         }
     }
 }
