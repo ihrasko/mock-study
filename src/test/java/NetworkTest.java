@@ -67,11 +67,16 @@ public class NetworkTest {
     @Test
     public void spyingOnRealObjects() {
         // here every method is default stubbed
-        assertEquals(null, mockedNetwork.removeComputer(100));
+        // but now there is SmartNull object
+        assertNotEquals(null, mockedNetwork.removeComputer(100));
 
         // here real methods are called
         try {
             Network spy = spy(new Network());
+
+            assertTrue(Mockito.mockingDetails(spy).isMock());
+            assertTrue(Mockito.mockingDetails(spy).isSpy());
+
             spy.removeComputer(100);
             fail("Test should fail due to IndexOutOfBoudException");
         } catch (Exception e) {
