@@ -7,6 +7,7 @@ import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.*;
 /**
  * Network test class
@@ -27,7 +28,7 @@ public class NetworkTest {
         when(mockedNetwork.addComputer(null)).thenReturn(false);
 
         when(mockedNetwork.removeComputer(mockedComputer)).thenReturn(true);
-        when(mockedNetwork.removeComputer(null)).thenReturn(false);
+        when(mockedNetwork.removeComputer(null)).thenThrow(new NullPointerException());
     }
 
     @Test
@@ -47,6 +48,11 @@ public class NetworkTest {
 
     @Test
     public void removeComputerNegativeTest() {
-        assertEquals(false, mockedNetwork.removeComputer(null));
+        try {
+            mockedNetwork.removeComputer(null);
+            fail("Test should fail due to Nullpointer exception");
+        } catch (Exception e) {
+            assertTrue((e instanceof NullPointerException));
+        }
     }
 }
