@@ -17,23 +17,21 @@ public class NetworkTest {
 
     @Mock
     private Network mockedNetwork;
-    @Mock
-    private Computer mockedComputer;
 
     @Before
     public void initTest() {
         MockitoAnnotations.initMocks(this);
 
-        when(mockedNetwork.addComputer(mockedComputer)).thenReturn(true);
+        when(mockedNetwork.addComputer(any(Computer.class))).thenReturn(true);
         when(mockedNetwork.addComputer(null)).thenReturn(false);
 
-        when(mockedNetwork.removeComputer(mockedComputer)).thenReturn(true);
+        when(mockedNetwork.removeComputer(any(Computer.class))).thenReturn(true);
         when(mockedNetwork.removeComputer(null)).thenThrow(new NullPointerException());
     }
 
     @Test
     public void addComputerPositiveTest() {
-        assertEquals(true, mockedNetwork.addComputer(mockedComputer));
+        assertEquals(true, mockedNetwork.addComputer(mock(Computer.class)));
     }
 
     @Test
@@ -43,7 +41,7 @@ public class NetworkTest {
 
     @Test
     public void removeComputerPositiveTest() {
-        assertEquals(true, mockedNetwork.removeComputer(mockedComputer));
+        assertEquals(true, mockedNetwork.removeComputer(mock(Computer.class)));
     }
 
     @Test
