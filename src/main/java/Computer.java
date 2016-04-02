@@ -47,6 +47,10 @@ public class Computer {
         this.os = os;
     }
 
+    public String reboot(long millis) {
+        return millis + " ms";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
