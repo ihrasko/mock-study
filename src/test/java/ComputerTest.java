@@ -15,7 +15,7 @@ public class ComputerTest {
     private Computer mockedComputer;
 
     @Before
-    public void initMOcks() {
+    public void initMocks() {
         MockitoAnnotations.initMocks(this);
     }
 
@@ -23,6 +23,12 @@ public class ComputerTest {
     public void ComputerNameTest() {
         mockedComputer.setName("Computer One");
         verify(mockedComputer).setName("Computer One");
+    }
+
+    @Test
+    public void verifyInvocationNeverHappen() {
+        mockedComputer.setName(anyString());
+        verify(mockedComputer, never()).setName(null);
     }
 
     @Test
