@@ -5,8 +5,15 @@ public class Computer {
 
     private String name;
     private String ipAddress;
-    private String macAdress;
+    private String macAddress;
     private String os;
+
+    public Computer(String name, String ipAddress, String macAdress, String os) {
+        this.name = name;
+        this.ipAddress = ipAddress;
+        this.macAddress = macAdress;
+        this.os = os;
+    }
 
     public String getName() {
         return name;
@@ -24,12 +31,12 @@ public class Computer {
         this.ipAddress = ipAddress;
     }
 
-    public String getMacAdress() {
-        return macAdress;
+    public String getMacAddress() {
+        return macAddress;
     }
 
-    public void setMacAdress(String macAdress) {
-        this.macAdress = macAdress;
+    public void setMacAddress(String macAddress) {
+        this.macAddress = macAddress;
     }
 
     public String getOs() {
@@ -49,7 +56,7 @@ public class Computer {
 
         if (name != null ? !name.equals(computer.name) : computer.name != null) return false;
         if (ipAddress != null ? !ipAddress.equals(computer.ipAddress) : computer.ipAddress != null) return false;
-        if (macAdress != null ? !macAdress.equals(computer.macAdress) : computer.macAdress != null) return false;
+        if (macAddress != null ? !macAddress.equals(computer.macAddress) : computer.macAddress != null) return false;
         return os != null ? os.equals(computer.os) : computer.os == null;
 
     }
@@ -58,7 +65,7 @@ public class Computer {
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (ipAddress != null ? ipAddress.hashCode() : 0);
-        result = 31 * result + (macAdress != null ? macAdress.hashCode() : 0);
+        result = 31 * result + (macAddress != null ? macAddress.hashCode() : 0);
         result = 31 * result + (os != null ? os.hashCode() : 0);
         return result;
     }
