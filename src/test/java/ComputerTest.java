@@ -3,7 +3,10 @@ import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 /**
  * Computer test class
@@ -17,6 +20,19 @@ public class ComputerTest {
     @Before
     public void initMocks() {
         MockitoAnnotations.initMocks(this);
+
+        when(mockedComputer.reboot(anyLong())).thenAnswer(new Answer() {
+            public Object answer(InvocationOnMock invocation) {
+                Object[] args = invocation.getArguments();
+                Object mock = invocation.getMock();
+                return "Reboot planned in: " + args[0] + " millis";
+            }
+        });
+    }
+
+    @Test
+    public void callBackTest() {
+        assertTrue("Reboot planned in: 2000 millis".equals(mockedComputer.reboot(2000)));
     }
 
     @Test
@@ -38,7 +54,7 @@ public class ComputerTest {
     }
 
     @Test
-    public void ComputerMacAdressTest() {
+    public void ComputerMacAddressTest() {
         mockedComputer.setMacAddress("01:23:45:67:89:ab");
         verify(mockedComputer).setMacAddress("01:23:45:67:89:ab");
     }
