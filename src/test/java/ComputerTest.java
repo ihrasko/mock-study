@@ -7,6 +7,7 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.*;
 /**
  * Computer test class
@@ -21,6 +22,7 @@ public class ComputerTest {
     public void initMocks() {
         MockitoAnnotations.initMocks(this);
 
+        // callback test
         when(mockedComputer.reboot(anyLong())).thenAnswer(new Answer() {
             public Object answer(InvocationOnMock invocation) {
                 Object[] args = invocation.getArguments();
@@ -28,11 +30,24 @@ public class ComputerTest {
                 return "Reboot planned in: " + args[0] + " millis";
             }
         });
+
+        // throw exception on void method when arg is null
+        doThrow(new NullPointerException()).when(mockedComputer).setName(null);
     }
 
     @Test
     public void callBackTest() {
         assertTrue("Reboot planned in: 2000 millis".equals(mockedComputer.reboot(2000)));
+    }
+
+    @Test
+    public void voidMethodExceptionTest() {
+        try {
+            mockedComputer.setName(null);
+            fail("Test should fail due to NullPointerException");
+        } catch (Exception e) {
+            assertTrue((e instanceof  NullPointerException));
+        }
     }
 
     @Test
