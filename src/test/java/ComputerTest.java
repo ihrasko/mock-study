@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -54,5 +55,16 @@ public class ComputerTest {
 
         verify(mockedComputer, atLeast(2)).setOs(anyString());
         verify(mockedComputer, atMost(2)).setOs(anyString());
+    }
+
+    @Test
+    public void verifyOrderOfInvocations() {
+        mockedComputer.setOs("Windows");
+        mockedComputer.setOs("Linux");
+
+        InOrder inOrder = inOrder(mockedComputer);
+
+        inOrder.verify(mockedComputer).setOs("Windows");
+        inOrder.verify(mockedComputer).setOs("Linux");
     }
 }
