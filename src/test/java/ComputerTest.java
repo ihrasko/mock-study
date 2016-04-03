@@ -46,7 +46,7 @@ public class ComputerTest {
             mockedComputer.setName(null);
             fail("Test should fail due to NullPointerException");
         } catch (Exception e) {
-            assertTrue((e instanceof  NullPointerException));
+            assertTrue((e instanceof NullPointerException));
         }
     }
 
@@ -79,7 +79,9 @@ public class ComputerTest {
         mockedComputer.setOs("Windows");
         mockedComputer.setOs("Linux");
 
+        // verify that method was called with both parameters
         verify(mockedComputer).setOs("Linux");
+        verify(mockedComputer).setOs("Windows");
     }
 
     @Test
