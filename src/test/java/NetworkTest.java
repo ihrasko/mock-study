@@ -1,14 +1,9 @@
-import com.sun.org.glassfish.gmbal.ManagedObject;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 import org.mockito.exceptions.verification.SmartNullPointerException;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -23,8 +18,7 @@ public class NetworkTest {
 
     @Before
     public void initTest() {
-        //MockitoAnnotations.initMocks(this);
-        mockedNetwork = mock(Network.class, Mockito.RETURNS_SMART_NULLS);
+        MockitoAnnotations.initMocks(this);
 
         when(mockedNetwork.addComputer(any(Computer.class))).thenReturn(true);
         when(mockedNetwork.addComputer(null)).thenReturn(false, true);
@@ -67,8 +61,7 @@ public class NetworkTest {
     @Test
     public void spyingOnRealObjects() {
         // here every method is default stubbed
-        // but now there is SmartNull object
-        assertNotEquals(null, mockedNetwork.removeComputer(100));
+        assertEquals(null, mockedNetwork.removeComputer(100));
 
         // here real methods are called
         try {
@@ -86,7 +79,7 @@ public class NetworkTest {
 
     @Test
     public void smartNullTest() {
-        Computer c = mockedNetwork.removeComputer(100);
+        Computer c = mock(Network.class, Mockito.RETURNS_SMART_NULLS).removeComputer(100);
 
         try {
             c.getName();
