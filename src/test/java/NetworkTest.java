@@ -67,6 +67,7 @@ public class NetworkTest {
         try {
             Network spy = spy(new Network());
 
+            // spy is also a mock
             assertTrue(Mockito.mockingDetails(spy).isMock());
             assertTrue(Mockito.mockingDetails(spy).isSpy());
 
@@ -79,6 +80,7 @@ public class NetworkTest {
 
     @Test
     public void smartNullTest() {
+        // SmartNulls will be returned instead of nulls
         Computer c = mock(Network.class, Mockito.RETURNS_SMART_NULLS).removeComputer(100);
 
         try {
