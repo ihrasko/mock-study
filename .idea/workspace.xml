@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b0a8260-3e2f-4303-881b-79acb6ae0329" name="Default" comment="updates">
+    <list default="true" id="7b0a8260-3e2f-4303-881b-79acb6ae0329" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Mock-Study.iml" afterPath="$PROJECT_DIR$/Mock-Study.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/NetworkTest.java" afterPath="$PROJECT_DIR$/src/test/java/NetworkTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_1_9_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_2_0_2_beta.xml" />
     </list>
     <ignored path="Mock-Study.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -757,7 +753,14 @@
       <option name="project" value="LOCAL" />
       <updated>1459640718333</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="working all tests">
+      <created>1459641715822</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1459641715822</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -855,7 +858,8 @@
     <MESSAGE value="updats" />
     <MESSAGE value="mocking details" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="working all tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="working all tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
