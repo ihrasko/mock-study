@@ -48,6 +48,11 @@ public class NetworkTest {
         assertEquals(true, mockedNetwork.removeComputer(mock(Computer.class)));
     }
 
+    /*
+    * You can use (example for this test)
+    *    @Test(expected=NullPointerException.class)
+    * in tests where u expect an exception. Then u dont need to catch that exception and use asserts to check if is right.
+    */
     @Test
     public void removeComputerNegativeTest() {
         try {
