@@ -30,5 +30,10 @@
             <artifactId>slf4j-simple</artifactId>
             <version>RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-junit4</artifactId>
+            <version>2.12.4</version>
+        </dependency>
     </dependencies>
 </project>
