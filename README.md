@@ -14,7 +14,7 @@ http://www.megster.net/2014/unit-testing-log4j-method-calls-with-junit-and-mocki
 
 https://dzone.com/articles/unit-testing-asserting-line
 
-** Remote debug from IDE **
+# Remote debug from IDE
 
 mvn -D maven.surefire.debug -D test=ComputerTest#callBackTest test
 
@@ -22,9 +22,7 @@ http://maven.apache.org/surefire/maven-surefire-plugin/examples/debugging.html
 
 https://maven.apache.org/surefire/maven-surefire-plugin/examples/single-test.html
 
-**
-
-** Futures
+# Futures
 
 http://www.nurkiewicz.com/2013/02/advanced-listenablefuture-capabilities.html?q=futures
 
