@@ -28,6 +28,10 @@ http://www.nurkiewicz.com/2013/02/advanced-listenablefuture-capabilities.html?q=
 
 http://www.programcreek.com/java-api-examples/index.php?class=com.google.common.util.concurrent.Futures&method=transform
 
+# Reverse engineering
+
+https://wiki.eclipse.org/Java_reverse_engineering
+
 # CI status
 
 [![Run Status](https://api.shippable.com/projects/57014db433e2f1203f8ca87a/badge?branch=master)](https://app.shippable.com/projects/57014db433e2f1203f8ca87a)
